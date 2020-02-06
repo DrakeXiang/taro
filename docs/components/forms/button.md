@@ -19,6 +19,8 @@ sidebar_label: Button
 |  ✔ |  ✔ | hoverStayTime | Number  | 70    | 手指松开后点击态保留时间，单位毫秒   |
 | X |  X | onGetUserInfo | Handler  |     | 微信小程序open-type='getUserInfo'时，用户点击该按钮，会返回获取到的用户信息，从返回参数的 detail 中获取到的值同 wx.getUserInfo   |
 
+>若在微信端使用`onGetPhoneNumber`属性回调，则注意不要在该回调函数内使用异步请求`Taro.login()`。根据[issue#4238](https://github.com/NervJS/taro/issues/4238#issuecomment-524686513)，这种使用方法可能造成手机号解密失败，请在点击按钮之前调用`Taro.login()`获取`code`。
+
 >其他相关属性请看各小程序官方文档
 
 [微信小程序 Button](https://developers.weixin.qq.com/miniprogram/dev/component/button.html)。
